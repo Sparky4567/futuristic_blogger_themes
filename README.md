@@ -12,3 +12,5 @@ In other words... I justg had an access to modern AI development tools and had n
 
 - Download the desired theme file
 - Use the blogger interface -> Restore theme from a file  
+
+[https://bento-san.blogspot.com/](https://bento-san.blogspot.com/)
