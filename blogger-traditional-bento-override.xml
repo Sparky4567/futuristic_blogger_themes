@@ -4445,7 +4445,7 @@ blockquote {
             <b:section class='footer' id='footer' name='Footer' showaddelement='false' tag='footer'>
               <b:widget id='Attribution1' locked='true' title='' type='Attribution' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='copyright'/>
+                  <b:widget-setting name='copyright'>bento-san @2026</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main' var='this'>
   <div class='widget-content'>
@@ -4597,6 +4597,38 @@ blockquote {
         </b:section>
       </div>
       <b:section class='sidebar_bottom' id='sidebar_bottom' name='Sidebar (Bottom)' preferred='yes'>
+        <b:widget id='Label1' locked='false' title='Labels' type='Label' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+            <b:widget-setting name='display'>LIST</b:widget-setting>
+            <b:widget-setting name='selectedLabelsList'/>
+            <b:widget-setting name='showType'>ALL</b:widget-setting>
+            <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main' var='this'>
+          <details class='collapsible extendable'>
+            <b:attr cond='data:view.isLabelSearch' name='open' value='open'/>
+            <b:with value='true' var='renderAsDetails'>
+            <b:with value='data:messages.labels' var='defaultTitle'>
+              <b:include name='super.main'/>
+            </b:with>
+            </b:with>
+          </details>
+        </b:includable>
+          <b:includable id='cloud'>
+          <b:include data='{                               buttonClass: &quot;pill-button&quot;,                               items: data:this.labels,                               itemSet: &quot;labels&quot;,                               itemsMarkup: &quot;super.cloud&quot;                             }' name='extendableItems'/>
+        </b:includable>
+          <b:includable id='content'>
+  <div class='widget-content'>
+    <b:class expr:name='data:this.display + &quot;-label-widget-content&quot;'/>
+    <b:include cond='data:this.display == &quot;list&quot;' name='list'/>
+    <b:include cond='data:this.display == &quot;cloud&quot;' name='cloud'/>
+  </div>
+</b:includable>
+          <b:includable id='list'>
+          <b:include data='{                               buttonClass: &quot;pill-button&quot;,                               items: data:this.labels,                               itemSet: &quot;labels&quot;,                               itemsMarkup: &quot;super.list&quot;                             }' name='extendableItems'/>
+        </b:includable>
+        </b:widget>
         <b:widget id='BlogArchive1' locked='false' title='' type='BlogArchive' visible='true'>
           <b:widget-settings>
             <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
@@ -4663,39 +4695,7 @@ blockquote {
   </ul>
 </b:includable>
         </b:widget>
-        <b:widget id='Label1' locked='false' title='Labels' type='Label' visible='true'>
-          <b:widget-settings>
-            <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
-            <b:widget-setting name='display'>LIST</b:widget-setting>
-            <b:widget-setting name='selectedLabelsList'/>
-            <b:widget-setting name='showType'>ALL</b:widget-setting>
-            <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
-          </b:widget-settings>
-          <b:includable id='main' var='this'>
-          <details class='collapsible extendable'>
-            <b:attr cond='data:view.isLabelSearch' name='open' value='open'/>
-            <b:with value='true' var='renderAsDetails'>
-            <b:with value='data:messages.labels' var='defaultTitle'>
-              <b:include name='super.main'/>
-            </b:with>
-            </b:with>
-          </details>
-        </b:includable>
-          <b:includable id='cloud'>
-          <b:include data='{                               buttonClass: &quot;pill-button&quot;,                               items: data:this.labels,                               itemSet: &quot;labels&quot;,                               itemsMarkup: &quot;super.cloud&quot;                             }' name='extendableItems'/>
-        </b:includable>
-          <b:includable id='content'>
-  <div class='widget-content'>
-    <b:class expr:name='data:this.display + &quot;-label-widget-content&quot;'/>
-    <b:include cond='data:this.display == &quot;list&quot;' name='list'/>
-    <b:include cond='data:this.display == &quot;cloud&quot;' name='cloud'/>
-  </div>
-</b:includable>
-          <b:includable id='list'>
-          <b:include data='{                               buttonClass: &quot;pill-button&quot;,                               items: data:this.labels,                               itemSet: &quot;labels&quot;,                               itemsMarkup: &quot;super.list&quot;                             }' name='extendableItems'/>
-        </b:includable>
-        </b:widget>
-        <b:widget id='ReportAbuse1' locked='true' title='' type='ReportAbuse' visible='true'>
+        <b:widget id='ReportAbuse1' locked='true' title='' type='ReportAbuse' visible='false'>
           <b:includable id='main'>
   <b:include name='reportAbuse'/>
 </b:includable>
