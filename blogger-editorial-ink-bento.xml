@@ -2666,6 +2666,7 @@ margin-left:40px
   --bento-card-solid: #ffffff;
   --bento-text: #11131b;
   --bento-muted: #6f7688;
+  --bento-article-text: #293040;
   --bento-border: rgba(23, 27, 38, 0.10);
   --bento-accent: #5b7cfa;
   --bento-accent-2: #7c3aed;
@@ -2894,7 +2895,7 @@ video {
 }
 
 .post-body {
-  color: #293040 !important;
+  color: var(--bento-article-text) !important;
   font-family: var(--bento-font) !important;
   font-size: 1.02rem !important;
   line-height: 1.75 !important;
@@ -2926,7 +2927,7 @@ blockquote {
   border-left: 4px solid var(--bento-accent);
   border-radius: 0 var(--bento-radius-md) var(--bento-radius-md) 0;
   background: var(--bento-soft);
-  color: #29304a !important;
+  color: var(--bento-article-text) !important;
   font-family: var(--bento-font) !important;
   font-size: 1.12rem !important;
   font-style: normal !important;
@@ -3204,6 +3205,7 @@ blockquote {
     --bento-card-solid: #111622;
     --bento-text: #f7f8fd;
     --bento-muted: #a5adbf;
+    --bento-article-text: #dfe4f2;
     --bento-border: rgba(255, 255, 255, 0.10);
     --bento-soft: rgba(91, 124, 250, 0.18);
     --bento-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
@@ -3228,12 +3230,12 @@ blockquote {
   }
 
   .post-body {
-    color: #dfe4f2 !important;
+    color: var(--bento-article-text) !important;
   }
 
   .post-body blockquote,
   blockquote {
-    color: #e8ebf7 !important;
+    color: var(--bento-article-text) !important;
   }
 
   .tabs li a:hover,
@@ -3256,6 +3258,7 @@ blockquote {
   --bento-card-solid: #fffaf0;
   --bento-text: #171411;
   --bento-muted: #736b60;
+  --bento-article-text: var(--bento-text);
   --bento-border: rgba(23,20,17,0.16);
   --bento-accent: #b42318;
   --bento-accent-2: #165a72;
