@@ -3278,7 +3278,10 @@ blockquote {
 }
 
 body {
-  background: var(--bento-bg) !important;
+  background:
+    radial-gradient(circle at 12% 9%, rgba(0, 121, 107, .24), transparent 30rem),
+    radial-gradient(circle at 88% 16%, rgba(194, 24, 91, .16), transparent 28rem),
+    linear-gradient(135deg, #f7fbfa 0%, #e4f4f0 52%, #fde9f0 100%) !important;
   color: var(--bento-text) !important;
 }
 
@@ -3586,7 +3589,10 @@ blockquote {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #0d1716 !important;
+    background:
+      radial-gradient(circle at 12% 9%, rgba(0, 121, 107, .20), transparent 30rem),
+      radial-gradient(circle at 88% 16%, rgba(194, 24, 91, .12), transparent 28rem),
+      linear-gradient(135deg, #0d1716 0%, #102520 52%, #28111a 100%) !important;
   }
 
   :root {
