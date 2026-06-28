@@ -3149,6 +3149,7 @@ blockquote {
 @media screen and (max-width: 999px) {
   .page_body .centered {
     width: min(100% - 24px, var(--bento-max)) !important;
+    max-width: 1180px !important;
   }
 
   .centered-bottom {
@@ -3265,10 +3266,10 @@ blockquote {
   --bento-accent-2: #00695c;
   --bento-soft: rgba(255,143,0,.14);
   --bento-shadow-soft: 0 1px 0 rgba(255,143,0,.12);
-  --bento-radius-xl: 0px;
-  --bento-radius-lg: 0px;
-  --bento-radius-md: 0px;
-  --bento-max: 1120px;
+  --bento-radius-xl: 28px;
+  --bento-radius-lg: 22px;
+  --bento-radius-md: 14px;
+  --bento-max: 80vw;
   --clean-content-max: 760px;
   --clean-sidebar-max: 300px;
   --bento-font: Roboto, Arial, sans-serif;
@@ -3283,12 +3284,15 @@ body {
 
 .page_body .centered {
   width: min(var(--bento-max), calc(100% - 40px)) !important;
+  max-width: 1180px !important;
   padding-top: 0 !important;
   margin-inline: auto !important;
 }
 
 .blog-name {
   min-height: clamp(330px, 46vw, 560px);
+  position: relative;
+  overflow: hidden;
   margin: 0 0 56px 0 !important;
   padding: clamp(68px, 10vw, 108px) clamp(24px, 7vw, 72px) clamp(58px, 9vw, 96px) !important;
   border: 0 !important;
@@ -3300,6 +3304,29 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.blog-name::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.blog-name::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.46), rgba(0,0,0,.56));
+}
+
+.blog-name > * {
+  position: relative;
+  z-index: 1;
 }
 
 .Header h1,
@@ -3317,15 +3344,7 @@ body {
 }
 
 .Header p {
-  color: rgba(255,255,255,.92) !important;
-  margin: 18px auto 0 !important;
-  max-width: 760px;
-  font-family: var(--bento-font) !important;
-  font-size: clamp(1rem, 2vw, 1.35rem) !important;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0;
-  text-align: center !important;
+  display: none !important;
 }
 
 .blog-name .PageList {
@@ -3397,17 +3416,17 @@ body {
 .sidebar-container .widget,
 .Attribution,
 #comments {
-  border: 0 !important;
-  border-radius: 0 !important;
+  border: 1px solid var(--bento-border) !important;
+  border-radius: var(--bento-radius-lg) !important;
   background: var(--bento-card) !important;
-  box-shadow: none !important;
+  box-shadow: var(--bento-shadow-soft) !important;
+  overflow: hidden;
 }
 
 .Blog .blog-posts .post-outer-container,
 #page_body .FeaturedPost {
-  padding: 0 0 42px 0 !important;
+  padding: clamp(22px, 3vw, 38px) !important;
   margin-bottom: 42px !important;
-  border-bottom: 1px solid var(--bento-border) !important;
 }
 
 .post-title,
@@ -3479,8 +3498,7 @@ blockquote {
 .PopularPosts,
 .sidebar-container .widget,
 #comments {
-  padding: 0 0 26px 0 !important;
-  border-bottom: 1px solid var(--bento-border) !important;
+  padding: clamp(20px, 2.8vw, 32px) !important;
 }
 
 .Attribution {
@@ -3545,6 +3563,7 @@ blockquote {
 @media screen and (max-width: 720px) {
   .page_body .centered {
     width: min(100% - 24px, var(--bento-max)) !important;
+    max-width: 1180px !important;
   }
 
   .blog-name {
@@ -3791,6 +3810,7 @@ blockquote {
       <b:defaultmarkup type='FeaturedPost'>
         <b:includable id='snippetedPostContent'>
           <b:comment>Re-order the thumbnail before the snippet, add &#39;Keep reading&#39; link.</b:comment>
+          <b:include cond='data:post.featuredImage' data='{ image: data:post.featuredImage, selector: &quot;.blog-name::before&quot; }' name='responsiveImageStyle'/>
           <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
           <b:include name='headerByline'/>
           <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' data='post' name='snippetedPostThumbnail'/>
@@ -4203,6 +4223,7 @@ blockquote {
         </b:includable>
                     <b:includable id='snippetedPostContent'>
           <b:comment>Re-order the thumbnail before the snippet, add &#39;Keep reading&#39; link.</b:comment>
+          <b:include cond='data:post.featuredImage' data='{ image: data:post.featuredImage, selector: &quot;.blog-name::before&quot; }' name='responsiveImageStyle'/>
           <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
           <b:include name='headerByline'/>
           <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' data='post' name='snippetedPostThumbnail'/>
