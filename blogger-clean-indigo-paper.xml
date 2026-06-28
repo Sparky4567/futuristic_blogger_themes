@@ -2894,7 +2894,8 @@ video {
   color: var(--bento-accent) !important;
 }
 
-.post-body {
+.post-body,
+.post-body .post-snippet {
   color: var(--bento-article-text) !important;
   font-family: var(--bento-font) !important;
   font-size: 1.02rem !important;
@@ -3268,6 +3269,8 @@ blockquote {
   --bento-radius-lg: 0px;
   --bento-radius-md: 0px;
   --bento-max: 1120px;
+  --clean-content-max: 760px;
+  --clean-sidebar-max: 300px;
   --bento-font: Roboto, Arial, sans-serif;
   --clean-serif: Merriweather, Georgia, serif;
   --clean-hero: linear-gradient(135deg, #1a237e, #3f51b5);
@@ -3281,12 +3284,13 @@ body {
 .page_body .centered {
   width: min(var(--bento-max), calc(100% - 40px)) !important;
   padding-top: 0 !important;
+  margin-inline: auto !important;
 }
 
 .blog-name {
-  min-height: clamp(300px, 42vw, 520px);
-  margin: 0 0 48px 0 !important;
-  padding: clamp(28px, 7vw, 72px) !important;
+  min-height: clamp(330px, 46vw, 560px);
+  margin: 0 0 56px 0 !important;
+  padding: clamp(68px, 10vw, 108px) clamp(24px, 7vw, 72px) clamp(58px, 9vw, 96px) !important;
   border: 0 !important;
   border-radius: 0 !important;
   background:
@@ -3326,22 +3330,29 @@ body {
 
 .blog-name .PageList {
   position: absolute;
-  top: 18px;
-  left: 24px;
-  right: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 58px;
   margin-top: 0 !important;
+  padding: 0 clamp(16px, 4vw, 40px) !important;
+  border-bottom: 1px solid rgba(255,255,255,.22);
   text-align: center !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tabs {
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .tabs li a,
 .tabs .overflow-button a {
-  min-height: 38px;
-  padding: 0 13px !important;
+  min-height: 42px;
+  padding: 0 14px !important;
   border-radius: 0 !important;
   border: 0 !important;
   background: transparent !important;
@@ -3376,7 +3387,8 @@ body {
 }
 
 .centered-bottom {
-  gap: 40px;
+  gap: 54px;
+  align-items: start;
 }
 
 #page_body .FeaturedPost,
@@ -3393,8 +3405,8 @@ body {
 
 .Blog .blog-posts .post-outer-container,
 #page_body .FeaturedPost {
-  padding: 0 0 34px 0 !important;
-  margin-bottom: 34px !important;
+  padding: 0 0 42px 0 !important;
+  margin-bottom: 42px !important;
   border-bottom: 1px solid var(--bento-border) !important;
 }
 
@@ -3412,7 +3424,9 @@ body {
   color: var(--bento-accent) !important;
 }
 
-.post-body {
+.post-body,
+.post-body .post-snippet,
+.post-snippet {
   color: var(--bento-article-text) !important;
   font-family: var(--clean-serif) !important;
   font-size: clamp(1.05rem, 1.6vw, 1.2rem) !important;
@@ -3464,10 +3478,27 @@ blockquote {
 
 .PopularPosts,
 .sidebar-container .widget,
-.Attribution,
 #comments {
   padding: 0 0 26px 0 !important;
   border-bottom: 1px solid var(--bento-border) !important;
+}
+
+.Attribution {
+  max-width: var(--clean-content-max) !important;
+  margin: 34px auto 0 !important;
+  padding: 34px 0 48px !important;
+  border-top: 1px solid var(--bento-border) !important;
+  border-bottom: 0 !important;
+  color: var(--bento-muted) !important;
+  text-align: center !important;
+  font-family: var(--bento-font) !important;
+  font-size: .86rem !important;
+}
+
+.Attribution a,
+.Attribution a:hover,
+.Attribution a:visited {
+  color: var(--bento-accent) !important;
 }
 
 .PopularPosts h3.title,
@@ -3496,9 +3527,18 @@ blockquote {
 
 @media screen and (min-width: 1000px) {
   .page_body .centered {
-    grid-template-columns: minmax(0, 720px) minmax(260px, 320px);
+    grid-template-columns: minmax(0, var(--clean-content-max)) minmax(240px, var(--clean-sidebar-max));
     justify-content: center;
-    gap: 52px;
+    gap: 58px;
+  }
+
+  #Blog1,
+  #page_body .FeaturedPost {
+    max-width: var(--clean-content-max);
+  }
+
+  .sidebar-container {
+    max-width: var(--clean-sidebar-max);
   }
 }
 
